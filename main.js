@@ -32,9 +32,9 @@ const enableDebugMode = function(game, enabled) {
 
 const __main = function() {
     const imgPath = {
-        ball: 'img/bullet.png',
+        bullet: 'img/bullet.png',
         cloud: 'img/cloud.png',
-        player: 'img/player',
+        player: 'img/player.png',
         sky: 'img/sky.png',
     }
 

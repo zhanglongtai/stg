@@ -1,6 +1,8 @@
 class Scene {
     constructor(game, ...args) {
         this.game = game
+
+        this.elements = []
     }
 
     static new(game, ...args) {
@@ -8,7 +10,15 @@ class Scene {
         return i
     }
 
-    draw() {}
+    addElement(element) {
+        this.elements.push(element)
+    }
+
+    draw() {
+        for (const e of this.elements) {
+            this.game.drawImage(e)
+        }
+    }
 
     update() {}
 }

@@ -8,7 +8,7 @@ class GameImage {
         this.height = this.texture.height
     }
 
-    static new(game, nam) {
+    static new(game, name) {
         const i = new this(game, name)
         return i
     }
