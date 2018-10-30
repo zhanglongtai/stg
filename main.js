@@ -1,14 +1,3 @@
-// const loadLevel = function(game, levels, n) {
-//     const level = levels[n - 1]
-
-//     const blocks = []
-//     for (const p of level) {
-//         const block = Block(game, p)
-//         blocks.push(block)
-//     }
-//     return blocks
-// }
-
 const enableDebugMode = function(game, enabled) {
     if (!enabled) {
         return
@@ -36,6 +25,11 @@ const __main = function() {
         cloud: 'img/cloud.png',
         player: 'img/player.png',
         sky: 'img/sky.png',
+        enemy0: 'img/enemy0.png',
+        enemy1: 'img/enemy1.png',
+        enemy2: 'img/enemy2.png',
+        enemy3: 'img/enemy3.png',
+        enemy4: 'img/enemy4.png',
     }
 
     const game = Game.singleInstance(30, imgPath, (gameInstance) => {

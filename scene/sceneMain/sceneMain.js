@@ -3,6 +3,7 @@ class SceneMain extends Scene {
         super(game)
 
         this.setup()
+        this.setupInputs()
 
         this.score = 0
         this.dragging = false
@@ -43,50 +44,64 @@ class SceneMain extends Scene {
 
     setup() {
         this.background = GameImage.new(this.game, 'sky')
-        this.cloud = GameImage.new(this.game, 'cloud')
-        this.player = GameImage.new(this.game, 'player')
+        this.cloud = Cloud.new(this.game, 'cloud')
+        this.player = Player.new(this.game)
         this.player.x = 100
         this.player.y = 150
+
+        this.enemyNum = 10
+        this.enemies = []
 
         this.addElement(this.background)
         this.addElement(this.player)
         this.addElement(this.cloud)
 
-        // this.game.registerAction('ArrowLeft', () => {
-        //     this.player.moveLeft()
-        // })
-    
-        // this.game.registerAction('ArrowRight', () => {
-        //     this.player.moveRight()
-        // })
-    
-        // this.game.registerAction('f', () => {
-        //     this.ball.fire()
-        // })
+        this.addEnemies()
     }
 
-    // draw() {
-        // background
-        // game.context.fillStyle = "#554"
-        // game.context.fillRect(0, 0, 400, 300)
-
-        // component
-        // this.game.drawImage(this.background)
-        // this.game.drawImage(this.player)
-        // this.game.drawImage(this.paddle)
-        // this.game.drawImage(this.ball)
-        // for (const b of this.blocks) {
-        //     if (b.alive) {
-        //         this.game.drawImage(b)
-        //     }
-        // }
-
-        // this.game.context.fillText(`score: ${this.score}`, 10, 290)
-    // }
-
-    update() {
-        if (window.paused) {
-            return
+    addEnemies() {
+        const es = []
+        for (let i = 0; i < this.enemyNum; i++) {
+            const e = Enemy.new(this.game)
+            es.push(e)
+            this.addElement(e)
         }
+
+        this.enemies = es
     }
+
+    setupInputs() {
+        const g = this.game
+        const s = this
+
+        this.game.registerAction('ArrowLeft', () => {
+            this.player.moveLeft()
+        })
+    
+        this.game.registerAction('ArrowRight', () => {
+            this.player.moveRight()
+        })
+    
+        this.game.registerAction('ArrowUp', () => {
+            this.player.moveUp()
+        })
+
+        this.game.registerAction('ArrowDown', () => {
+            this.player.moveDown()
+        })
+
+        this.game.registerAction('ArrowDown', () => {
+            this.player.fire()
+        })
+    }
+
+    // update() {
+    //     if (window.paused) {
+    //         return
+    //     }
+
+    //     for (const e of this.enemies) {
+    //         e.update()
+    //     }
+    // }
 }

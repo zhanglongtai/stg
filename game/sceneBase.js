@@ -20,5 +20,9 @@ class Scene {
         }
     }
 
-    update() {}
+    update() {
+        for (const e of this.elements) {
+            e.update()
+        }
+    }
 }
