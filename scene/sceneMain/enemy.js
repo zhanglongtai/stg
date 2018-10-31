@@ -26,6 +26,7 @@ class Enemy extends GameImage {
     }
 
     update() {
+        this.speed = config.enemy_speed
         this.y += this.speed
 
         if (this.y > 600) {

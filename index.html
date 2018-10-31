@@ -5,6 +5,7 @@
                 border: 1px solid;
             }
         </style>
+        <script src="config.js"></script>
         <script src="game/utils.js"></script>
         <script src="game/game.js"></script>
         <script src="game/sceneBase.js"></script>
@@ -23,20 +24,49 @@
         <input id="id-fps-input" type="range" value="1">
         <br>
         <div>
-            <label class="game-label">
-                <input class="class-auto-slider" type="range" value="" data-value="config.palyer_speed">
-                玩家速度: <span></span>
+            <label class="">
+                <input class="class-auto-slider" type="range" value="" data-value="config.player_speed">
+                玩家速度: <span class="game-label"></span>
+            </label>
+        </div>
+        <div>
+            <label class="">
+                <input class="class-auto-slider" type="range" value="" data-value="config.bullet_speed">
+                子弹速度: <span class="game-label"></span>
+            </label>
+        </div>
+        <div>
+            <label class="">
+                <input
+                    class="class-auto-slider"
+                    type="range" value="" max=20
+                    data-value="config.fire_cooldown"
+                >
+                子弹冷却速度: <span class="game-label"></span>
+            </label>
+        </div>
+        <div>
+            <label class="">
+                <input class="class-auto-slider" type="range" value="" data-value="config.cloud_speed">
+                云朵速度: <span class="game-label"></span>
+            </label>
+        </div>
+        <div>
+            <label class="">
+                <input class="class-auto-slider" type="range" value="" data-value="config.enemy_speed">
+                敌人速度: <span class="game-label"></span>
             </label>
         </div>
         <!-- <textarea id="id-log" rows="20" cols="50"></textarea> -->
         <script src="main.js"></script>
         <script>
             const es = (sel) => {
-                document.querySelectorAll(sel)
+                return document.querySelectorAll(sel)
             }
 
             const bindAll = (sel, eventname, callback) => {
                 const all = es(sel)
+
                 for (const e of all) {
                     e.addEventListener(eventname, (event) => {
                         callback(event)
@@ -44,9 +74,10 @@
                 }
             }
 
-            bindAll('.auto-slider', 'input', (event) => {
+            bindAll('.class-auto-slider', 'input', (event) => {
                 const target = event.target
                 const bindValue = target.dataset.value
+                log('data-set-value', bindValue)
                 const value = target.value
                 eval(bindValue + '=' + value)
 

@@ -1,7 +1,3 @@
-const config = {
-    player_speed: 10,
-}
-
 class Player extends GameImage {
     constructor(game) {
         super(game, 'player')

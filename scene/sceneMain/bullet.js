@@ -10,6 +10,7 @@ class Bullet extends GameImage {
     }
 
     update() {
+        this.speed = config.bullet_speed
         this.y -= this.speed
     }
 }

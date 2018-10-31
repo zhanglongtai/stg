@@ -1,6 +1,7 @@
 class Scene {
     constructor(game, ...args) {
         this.game = game
+        this.debugModeEnabled = true
 
         this.elements = []
     }
@@ -22,8 +23,15 @@ class Scene {
     }
 
     update() {
-        for (const e of this.elements) {
-            e.update()
+        if (this.debugModeEnabled) {
+            for (const e of this.elements) {
+                e.update()
+                e.debug && e.debug()
+            }
+        } else {
+            for (const e of this.elements) {
+                e.update()
+            }
         }
     }
 }

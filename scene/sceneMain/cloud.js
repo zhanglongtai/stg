@@ -24,10 +24,15 @@ class Cloud extends GameImage {
     }
 
     update() {
+       
         this.y += this.speed
 
         if (this.y > 600) {
             this.setUp()
         }
+    }
+
+    debug() {
+        this.speed = config.cloud_speed
     }
 }
