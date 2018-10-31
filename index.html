@@ -22,7 +22,37 @@
         <br>
         <input id="id-fps-input" type="range" value="1">
         <br>
+        <div>
+            <label class="game-label">
+                <input class="class-auto-slider" type="range" value="" data-value="config.palyer_speed">
+                玩家速度: <span></span>
+            </label>
+        </div>
         <!-- <textarea id="id-log" rows="20" cols="50"></textarea> -->
         <script src="main.js"></script>
+        <script>
+            const es = (sel) => {
+                document.querySelectorAll(sel)
+            }
+
+            const bindAll = (sel, eventname, callback) => {
+                const all = es(sel)
+                for (const e of all) {
+                    e.addEventListener(eventname, (event) => {
+                        callback(event)
+                    })
+                }
+            }
+
+            bindAll('.auto-slider', 'input', (event) => {
+                const target = event.target
+                const bindValue = target.dataset.value
+                const value = target.value
+                eval(bindValue + '=' + value)
+
+                const label = target.closest('label').querySelector('.game-label')
+                label.innerText = value
+            })
+        </script>
     </body>
 </html>

@@ -1,3 +1,7 @@
+const config = {
+    player_speed: 10,
+}
+
 class Player extends GameImage {
     constructor(game) {
         super(game, 'player')
@@ -7,6 +11,7 @@ class Player extends GameImage {
 
     setUp() {
         this.speed = 10
+        this.cooldown = 0
     }
 
     moveLeft() {
@@ -26,7 +31,24 @@ class Player extends GameImage {
     }
 
     fire() {
-        const x = this.x + this.width / 2
-        const y = this.y
+        if (this.cooldown === 0) {
+            this.cooldown = 9
+
+            const x = this.x + this.width / 2
+            const y = this.y
+            const b = Bullet.new(this.game)
+            b.x = x
+            b.y = y
+
+            this.scene.addElement(b)
+        }
+        
+    }
+
+    update() {
+        this.speed = config.player_speed
+        if (this.cooldown > 0) {
+            this.cooldown -= 1
+        }
     }
 }

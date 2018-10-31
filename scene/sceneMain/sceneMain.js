@@ -90,7 +90,7 @@ class SceneMain extends Scene {
             this.player.moveDown()
         })
 
-        this.game.registerAction('ArrowDown', () => {
+        this.game.registerAction(' ', () => {
             this.player.fire()
         })
     }
