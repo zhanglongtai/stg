@@ -18,7 +18,8 @@ class Scene {
 
     draw() {
         for (const e of this.elements) {
-            this.game.drawImage(e)
+            // this.game.drawImage(e)
+            e.draw()
         }
     }
 

@@ -14,7 +14,9 @@ class GameImage {
         return i
     }
 
-    draw() {}
+    draw() {
+        this.game.drawImage(this)
+    }
 
     update() {}
 }
