@@ -50,7 +50,7 @@ class ParticleSystem {
         }
         
         for (const p of this.particles) {
-            p.draw()
+            p.update()
         }
     }
 
