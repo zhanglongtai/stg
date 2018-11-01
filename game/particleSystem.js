@@ -30,7 +30,7 @@ class ParticleSystem {
 
     static new(game) {
         const i = new this(game)
-        return game
+        return i
     }
 
     setUp() {
@@ -43,7 +43,7 @@ class ParticleSystem {
     update() {
         if (this.particles.length < this.numberOfParticles) {
             const p = Particle.new(this.game)
-            const vx = andomBetween(-10, 10)
+            const vx = randomBetween(-10, 10)
             const vy = randomBetween(-10, 10)
             p.init(this.x, this.y, vx, vy)
             this.particles.push(p)
