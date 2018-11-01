@@ -34,8 +34,8 @@ const __main = function() {
     }
 
     const game = Game.singleInstance(30, imgPath, (gameInstance) => {
-        // const scene = SceneMain.new(gameInstance)
-        const scene = SceneTitle.new(gameInstance)
+        const scene = SceneMain.new(gameInstance)
+        // const scene = SceneTitle.new(gameInstance)
         game.runWithScene(scene)
     })
 

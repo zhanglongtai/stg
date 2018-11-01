@@ -57,6 +57,9 @@ class SceneMain extends Scene {
         this.addElement(this.cloud)
 
         this.addEnemies()
+
+        const particleSystem = ParticleSystem.new(this.game)
+        this.addElement(particleSystem)
     }
 
     addEnemies() {

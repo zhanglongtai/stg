@@ -6,7 +6,9 @@ class Particle extends GameImage {
         this.setUp()
     }
 
-    setUp() {}
+    setUp() {
+        this.life = 10
+    }
 
     init(x, y, vx, vy) {
         this.x = x
@@ -16,8 +18,12 @@ class Particle extends GameImage {
     }
 
     update() {
+        this.life -= 1
         this.x += this.vx
         this.y += this.vy
+        const factor = 0.05
+        this.vx += factor*this.vx
+        this.vy += factor*this.vy
     }
 }
 
@@ -34,17 +40,21 @@ class ParticleSystem {
     }
 
     setUp() {
+        this.duration = 50
         this.x = 150
         this.y = 200
-        this.numberOfParticles = 20
+        this.numberOfParticles = 100
         this.particles = []
     }
 
     update() {
+        this.duration -= 1
         if (this.particles.length < this.numberOfParticles) {
             const p = Particle.new(this.game)
-            const vx = randomBetween(-10, 10)
-            const vy = randomBetween(-10, 10)
+
+            const s = 2
+            const vx = randomBetween(-s, s)
+            const vy = randomBetween(-s, s)
             p.init(this.x, this.y, vx, vy)
             this.particles.push(p)
         }
@@ -52,6 +62,10 @@ class ParticleSystem {
         for (const p of this.particles) {
             p.update()
         }
+
+        this.particles = this.particles.filter((p) => {
+            return p.life > 0
+        })
     }
 
     draw() {
