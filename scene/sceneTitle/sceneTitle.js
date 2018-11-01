@@ -22,6 +22,9 @@ class SceneTitle extends Scene {
 
         const label = Label.new(this.game, 'Hello')
         this.addElement(label)
+
+        const particleSystem = ParticleSystem.new(this.game)
+        this.addElement(particleSystem)
     }
 
     // draw() {
