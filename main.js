@@ -31,6 +31,14 @@ const __main = function() {
         enemy3: 'img/enemy3.png',
         enemy4: 'img/enemy4.png',
         fire: 'img/fire.png',
+        walking1: 'img/walking/8framewalk1.gif',
+        walking2: 'img/walking/8framewalk2.gif',
+        walking3: 'img/walking/8framewalk3.gif',
+        walking4: 'img/walking/8framewalk4.gif',
+        walking5: 'img/walking/8framewalk5.gif',
+        walking6: 'img/walking/8framewalk6.gif',
+        walking7: 'img/walking/8framewalk7.gif',
+        walking8: 'img/walking/8framewalk8.gif',
     }
 
     const game = Game.singleInstance(30, imgPath, (gameInstance) => {
