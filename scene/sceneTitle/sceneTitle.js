@@ -17,12 +17,12 @@ class SceneTitle extends Scene {
     }
 
     setInputs() {
-        this.game.registerAction('ArrowLeft', () => {
-            this.animation.move(-5)
+        this.game.registerAction('ArrowLeft', (keyState) => {
+            this.animation.move(-5, keyState)
         })
 
-        this.game.registerAction('ArrowRight', () => {
-            this.animation.move(5)
+        this.game.registerAction('ArrowRight', (keyState) => {
+            this.animation.move(5, keyState)
         })
     }
 

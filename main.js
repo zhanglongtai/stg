@@ -42,12 +42,12 @@ const __main = function() {
         idle1: 'img/adventurer/idle/adventurer-idle-00.png',
         idle2: 'img/adventurer/idle/adventurer-idle-01.png',
         idle3: 'img/adventurer/idle/adventurer-idle-02.png',
-        run1: 'img/adventurer/run/adventurer-run3-01.png',
-        run2: 'img/adventurer/run/adventurer-run3-02.png',
-        run3: 'img/adventurer/run/adventurer-run3-03.png',
-        run4: 'img/adventurer/run/adventurer-run3-04.png',
-        run5: 'img/adventurer/run/adventurer-run3-05.png',
-        run6: 'img/adventurer/run/adventurer-run3-06.png',
+        run1: 'img/adventurer/run/adventurer-run3-00.png',
+        run2: 'img/adventurer/run/adventurer-run3-01.png',
+        run3: 'img/adventurer/run/adventurer-run3-02.png',
+        run4: 'img/adventurer/run/adventurer-run3-03.png',
+        run5: 'img/adventurer/run/adventurer-run3-04.png',
+        run6: 'img/adventurer/run/adventurer-run3-05.png',
     }
 
     const game = Game.singleInstance(30, imgPath, (gameInstance) => {

@@ -14,11 +14,11 @@ class Game {
         this.scene = null
 
         window.addEventListener('keydown', (event) => {
-            this.keydowns[event.key] = true
+            this.keydowns[event.key] = 'keydown'
         })
     
         window.addEventListener('keyup', (event) => {
-            this.keydowns[event.key] = false
+            this.keydowns[event.key] = 'keyup'
         })
 
         this.loadImg(imgToLoad)
@@ -49,8 +49,12 @@ class Game {
         // event
         const keyList = Object.keys(this.actions)
         for (const key of keyList) {
-            if (this.keydowns[key]) {
-                this.actions[key]()
+            const keyState = this.keydowns[key]
+            if (keyState === 'keydown') {
+                this.actions[key]('keydown')
+            } else if (keyState === 'keyup') {
+                this.actions[key]('keyup')
+                this.keydowns[key] = null
             }
         }
         // update
